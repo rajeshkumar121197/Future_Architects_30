@@ -18,8 +18,10 @@ Select_state = func_code.multiselect('Select State', df['States/ UTs/Cities'].un
 #applying filter
 filter_df = df[(df['Year'].isin(Select_year)) & (df['States/ UTs/Cities'].isin(Select_state))]
 
+st.image('rv_logo.webp',width = 100)
+
 #display the title of the dashboard
-st.title('Rape Violation Dashboard')
+st.title('Rape Violation Dashboard (2001-2008)')
 
 col1,col2,col3,col4,col5 = st.columns(5)
 
@@ -59,6 +61,5 @@ st.title('State count by case %')
 state_count = func_code.statewise_rape_case(filter_df)
 state_count.set_index('percentage cases',inplace=True)
 st.bar_chart(state_count, x_label='percentage cases', y_label='State count')
-
 
 
